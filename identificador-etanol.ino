@@ -81,9 +81,4 @@ void loop() {
     digitalWrite(5, LOW);
     digitalWrite(6, LOW);
   }
-  //  delay(1000);
-  //   for(int i =2;i<=7;i++){
-  //    digitalWrite(i,LOW);
-  //
-  //  }
 }
