@@ -1,10 +1,10 @@
 void setup() {
+  Serial.begin(9600);
+  Serial.flush();
   pinMode(13, OUTPUT);
   for (int i = 2; i <= 7; i++) {
     pinMode(i, OUTPUT);
-  }
-  Serial.begin(1200);
-  Serial.println("ola mundo");
+  }  
 }
 
 void loop() {
@@ -20,65 +20,70 @@ void loop() {
     }
   }
   valor_sensor = maior_valor;
-  Serial.println(valor_sensor);
-  Serial.flush();
-  
+    
   digitalWrite(13, LOW);
-
-  if (valor_sensor <= 50)
+  Serial.print("Leitura do sensor: ");
+  Serial.println(valor_sensor);
+  
+  if (valor_sensor <= 150)
   {
     digitalWrite(7, HIGH);
     delay(2000);
     digitalWrite(7, LOW);
   }
-  else if (valor_sensor > 50 and valor_sensor <= 100)
+   if (valor_sensor > 150 and valor_sensor <= 200)
   {
+    
     digitalWrite(2, HIGH);
-    delay(2000);
+    delay(2000);    
     digitalWrite(2, LOW);
   }
-  else if (valor_sensor > 100 and valor_sensor <= 300)
+   if (valor_sensor > 200 and valor_sensor <= 300)
   {
     digitalWrite(2, HIGH);
-    digitalWrite(3, HIGH);
-    delay(2000);
+    digitalWrite(3, HIGH);    
+    delay(2000);    
     digitalWrite(2, LOW);
     digitalWrite(3, LOW);
+    
   }
-  else if (valor_sensor > 300 and valor_sensor <= 350)
+   if (valor_sensor > 300 and valor_sensor <= 400)
   {
     digitalWrite(2, HIGH);
     digitalWrite(3, HIGH);
-    digitalWrite(4, HIGH);
+    digitalWrite(4, HIGH);   
     delay(2000);
     digitalWrite(2, LOW);
     digitalWrite(3, LOW);
     digitalWrite(4, LOW);
+  
   }
-  else if (valor_sensor > 350 and valor_sensor <= 400)
+   if (valor_sensor > 400 and valor_sensor <= 500)
   {
     digitalWrite(2, HIGH);
     digitalWrite(3, HIGH);
     digitalWrite(4, HIGH);
-    digitalWrite(5, HIGH);
+    digitalWrite(5, HIGH);  
     delay(2000);
     digitalWrite(2, LOW);
     digitalWrite(3, LOW);
     digitalWrite(4, LOW);
     digitalWrite(5, LOW);
+  
   }
-  else if (valor_sensor > 400)
+  else if (valor_sensor > 500)
   {
     digitalWrite(2, HIGH);
     digitalWrite(3, HIGH);
     digitalWrite(4, HIGH);
     digitalWrite(5, HIGH);
-    digitalWrite(6, HIGH);
+    digitalWrite(6, HIGH);  
     delay(2000);
     digitalWrite(2, LOW);
     digitalWrite(3, LOW);
     digitalWrite(4, LOW);
     digitalWrite(5, LOW);
     digitalWrite(6, LOW);
+  
   }
 }
