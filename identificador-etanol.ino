@@ -51,11 +51,12 @@ void loop() {
     if(primeitoTeste){
       Serial.println("Teste iniciado...");
       digitalWrite(ledAmarelo, HIGH);
-        
+      delay(7000);
       //Inicia o teste de alcool
       int maior_valor = 0;
       int valor_sensor = 0;
       int temp = 0;
+      
       while(temp <= 30000 ){
        valor_sensor = analogRead(sensor);
         if (valor_sensor > maior_valor) {
@@ -76,6 +77,7 @@ void loop() {
         temp++;
 
       }
+      
       
       valorSensor = maior_valor;
       
