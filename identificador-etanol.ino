@@ -51,14 +51,19 @@ void loop() {
     if(primeitoTeste){
       Serial.println("Teste iniciado...");
       digitalWrite(ledAmarelo, HIGH);
-      delay(7000);
+      
       //Inicia o teste de alcool
       int maior_valor = 0;
       int valor_sensor = 0;
       int temp = 0;
       
-      while(temp <= 30000 ){
+      while(temp < 10 ){
+       delay(1000);
        valor_sensor = analogRead(sensor);
+        Serial.print("Iteracao n.");
+        Serial.print(temp);
+        Serial.print(" Leitura do sensor: ");
+        Serial.println(valor_sensor);
         if (valor_sensor > maior_valor) {
           maior_valor = valor_sensor;
         }
@@ -76,15 +81,14 @@ void loop() {
         }
         temp++;
 
-      }
-      
+      }     
       
       valorSensor = maior_valor;
       
       Serial.print("Leitura do sensor: ");
       Serial.println(valorSensor);
   
-      if(valor_sensor <=  150){//verifica se o nivel de alcool esta acima do permitido
+      if(valorSensor <=  150){//verifica se o nivel de alcool esta acima do permitido
         digitalWrite(ledVerde, HIGH);
         digitalWrite(ledVermelho, LOW);
         ligaMotor = true; //Se estiver abaixo do permitido libera ligar o carro
